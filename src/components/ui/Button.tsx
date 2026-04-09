@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,7 +19,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-[0.98]";
 
   const variants = {
     primary: "bg-primary text-white hover:bg-primary-dark hover:shadow-lg",
@@ -37,10 +36,8 @@ export function Button({
   };
 
   return (
-    <motion.button
-      whileHover={{ scale: disabled || isLoading ? 1 : 1.02 }}
-      whileTap={{ scale: disabled || isLoading ? 1 : 0.98 }}
-      className={cn(baseStyles, variants[variant], sizes[size], className)}
+    <button
+      className={cn(baseStyles, variants[variant], sizes[size], className, (disabled || isLoading) && "scale-100")}
       disabled={disabled || isLoading}
       {...props}
     >
@@ -71,6 +68,6 @@ export function Button({
       ) : (
         children
       )}
-    </motion.button>
+    </button>
   );
 }
