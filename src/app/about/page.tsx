@@ -1,13 +1,8 @@
-import type { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Heart, Sparkles, Award, Users, Globe } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "About | Blessing Joseph",
-  description:
-    "Learn about Blessing Joseph - fashion designer and model from Cross River State, Nigeria. Discover her journey, values, and creative vision.",
-};
 
 const milestones = [
   {

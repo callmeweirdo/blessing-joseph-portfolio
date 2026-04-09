@@ -111,7 +111,7 @@ const portfolioSlice = createSlice({
   initialState,
   reducers: {
     setFilter: (state, action: PayloadAction<{ key: keyof PortfolioState["filters"]; value: string | number | null }>) => {
-      state.filters[action.payload.key] = action.payload.value;
+      (state.filters[action.payload.key] as string | number | null) = action.payload.value;
       applyFilters(state);
     },
     clearFilters: (state) => {
